@@ -3,8 +3,8 @@ const fs = require('fs');
 class ProductManager {
     constructor() {
         this.path = './product.json';
-        this.usedCodes = new Set(); // Almacenar códigos utilizados
-        this.nextId = 1; // Inicializar el próximo ID en 1
+        this.usedCodes = new Set(); 
+        this.nextId = 1; 
     }
 
     async getProducts() {
@@ -20,14 +20,10 @@ class ProductManager {
 
     async addProduct(product) {
         try {
-            // Asignar el próximo ID y luego incrementarlo para el siguiente producto
              product.id = this.nextId++;
             
              const products = await this.getProducts();
 
-             
-
-            // Incrementar el código automáticamente
             product.code = await this.generateUniqueCode();
 
             products.push(product);
@@ -40,7 +36,7 @@ class ProductManager {
     async generateUniqueCode() {
         let code;
         do {
-            code = Math.floor(1000 + Math.random() * 9000); // Generar un código aleatorio de 4 dígitos
+            code = Math.floor(1000 + Math.random() * 9000);
         } while (this.usedCodes.has(code));
 
         this.usedCodes.add(code);
@@ -52,7 +48,6 @@ class ProductManager {
             const productIndex = products.findIndex((p) => p.id === id);
 
             if (productIndex !== -1) {
-                // Actualizar los campos especificados sin cambiar el ID
                 products[productIndex] = { ...products[productIndex], ...updatedFields };
                 await fs.promises.writeFile(this.path, JSON.stringify(products));
             } else {
@@ -119,7 +114,7 @@ const product3 = {
     thumbnail: 'No',
     stock: 2
 };
-
+//Merodo para testear el funcionamiento del codigo
 // const test = async () => {
 //     await productManager.addProduct(product1);
 //     console.log('primer consulta', await productManager.getProducts());
