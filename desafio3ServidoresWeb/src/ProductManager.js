@@ -1,8 +1,6 @@
 import fs from 'fs';
 
-export {productManager};
-
-class ProductManager {
+export class ProductManager {
     constructor() {
         this.path = './product.json';
         this.usedCodes = new Set();
@@ -174,12 +172,13 @@ const test = async () => {
     await productManager.addProduct(product3);
     await productManager.addProduct(product4);
     await productManager.addProduct(product5);
-    await productManager.addProduct(product6); 
+    await productManager.addProduct(product6);
     await productManager.addProduct(product7);
     await productManager.addProduct(product8);
     await productManager.addProduct(product9);
     await productManager.addProduct(product10);
     console.log('Lista de productos', await productManager.getProducts());
+};
 
+// Llamada al método de prueba
 test();
-}
