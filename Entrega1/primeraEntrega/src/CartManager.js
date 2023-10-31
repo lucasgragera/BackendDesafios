@@ -1,11 +1,9 @@
 import fs from "fs";
 
 
-
 export class CartManager {
   constructor() {
-    // this.path = path;
-    this.path = './product.json';
+    this.path = '../product.json';
   }
 
   async getCarts() {
@@ -46,33 +44,58 @@ export class CartManager {
   async getCartById(id) {
     try {
         const carts = await this.getCarts();
-        // const cart = carts.find(c => c.id == id);
         const cart = carts.find(c => c.id == id);
-        if(!cart) return false;
-        return cart;
+
+        if (cart) {
+            // Calcula la cantidad total de cada producto en el carrito
+            const cartWithQuantity = {
+                ...cart,
+                products: cart.products.map((product) => ({
+                    ...product,
+                    quantity: product.quantity || 1, // Establece una cantidad predeterminada si no está definida
+                })),
+            };
+
+            return cartWithQuantity;
+        } else {
+            return null;
+        }
     } catch (error) {
         console.log(error);
     }
-  }
+}
+  async saveProductToCart(idCart, idProd) {
+    try {
+        const carts = await this.getCarts();
+        const cartIndex = carts.findIndex((c) => c.id == idCart);
 
-  async saveProductToCart(idCart, idProd){
-    const carts = await this.getCarts();
-    const cartExists = await this.getCartById(idCart);
-    console.log("Cart exists:", cartExists);
+        if (cartIndex !== -1) {
+            const cart = carts[cartIndex];
+            const existingProductIndex = cart.products.findIndex((p) => p.product === idProd);
 
-    if(cartExists){
-        const existProdInCart = cartExists.products.find(p => p.id === idProd);
-        console.log("Existing product in cart:", existProdInCart);
-        if (existProdInCart) existProdInCart.quantity += 1;
-        else {
-            const prod = {
-                product: idProd,
-                quantity: 1
-            };
-            cartExists.products.push(prod);
+            if (existingProductIndex !== -1) {
+                // Incrementa la cantidad si el producto ya existe en el carrito
+                cart.products[existingProductIndex].quantity += 1;
+            } else {
+                // Agrega un nuevo producto al carrito con cantidad 1
+                const newProduct = {
+                    product: idProd,
+                    quantity: 1,
+                };
+                cart.products.push(newProduct);
+            }
+
+            // Actualiza el archivo con los cambios en el carrito
+            await fs.promises.writeFile(this.path, JSON.stringify(carts));
+
+            // Devuelve el carrito actualizado
+            return cart;
+        } else {
+            console.log("Cart not found");
+            return null;
         }
-        await fs.promises.writeFile(this.path, JSON.stringify(carts));
-        return cartExists;
+    } catch (error) {
+        console.error(error);
     }
-  }
+}
 }
