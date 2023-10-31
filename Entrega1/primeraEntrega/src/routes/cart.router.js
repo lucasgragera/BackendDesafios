@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { CartManager } from "../CartManager.js";
-import { ProductManager } from "../ProductManager.js"; // Import the ProductManager class
+import { ProductManager } from "../ProductManager.js";
 
 const router = Router();
 const cartManager = new CartManager();
-const productManager = new ProductManager(); // Create an instance of ProductManager
+const productManager = new ProductManager(); 
 
 // Crear el carrito
 router.post('/', async (req, res) => {
@@ -37,8 +37,7 @@ router.post('/:idCart/product/:idProd', async (req, res) => {
     try {
         const { idProd, idCart } = req.params;
         const cart = await cartManager.getCartById(idCart);
-        const product = await productManager.getProductById(idProd); // Use the productManager instance
-
+        const product = await productManager.getProductById(idProd); 
         if (cart && product) {
             await cartManager.saveProductToCart(idCart, idProd);
             res.status(201).json({ message: 'Product added to cart successfully' });
