@@ -34,6 +34,8 @@ export class ProductManager {
 
             product.status = true;
 
+            product.category = 'verduleria';
+
             const products = await this.getProducts();
 
             product.code = await this.generateUniqueCode();
