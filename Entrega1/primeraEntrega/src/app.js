@@ -3,9 +3,6 @@
 import express from 'express';
 import productRouter from './routes/product.router.js'; 
 import cartManager from './routes/cart.router.js';
-// import { ProductManager } from './ProductManager.js';
-
-// const productManager = new ProductManager();
 
 const app = express();
 
