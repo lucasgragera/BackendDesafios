@@ -1,5 +1,5 @@
 import fs from "fs";
-//const productManager = new ProductManager("../product.json");
+
 
 
 export class CartManager {
