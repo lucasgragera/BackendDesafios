@@ -121,78 +121,78 @@ export class ProductManager {
 //    stock: 300
 //};
 
-const product3 = {
-    title: 'Melon',
-    description: 'Violeta',
-    price: '50',
-    thumbnail: 'No',
-    stock: 2
-};
+//const product3 = {
+//    title: 'Melon',
+//    description: 'Violeta',
+//    price: '50',
+//    thumbnail: 'No',
+//    stock: 2
+//};
 
-const product4 = {
-    title: 'Sandia',
-    description: 'Sandia',
-    price: '500',
-    thumbnail: 'No',
-    stock: 10
-};
-const product5 = {
-    title: 'Rucula',
-    description: 'Rucula',
-    price: '30',
-    thumbnail: 'No',
-    stock: 10
-};
-const product6 = {
-    title: 'Naranja',
-    description: 'Naranja',
-    price: '100',
-    thumbnail: 'No',
-    stock: 50
-};
-const product7 = {
-    title: 'Limon',
-    description: 'Limon',
-    price: '40',
-    thumbnail: 'No',
-    stock: 200
-};
-const product8 = {
-    title: 'Mandarina',
-    description: 'Mandarina',
-    price: '30',
-    thumbnail: 'No',
-    stock: 200
-};
-const product9 = {
-    title: 'Huevos',
-    description: 'Maple 30u',
-    price: '1200',
-    thumbnail: 'No',
-    stock: 20
-};
-const product10 = {
-    title: 'Pimiento',
-    description: 'Rojo',
-    price: '50',
-    thumbnail: 'No',
-    stock: 50
-};
+//const product4 = {
+ //   title: 'Sandia',
+  //  description: 'Sandia',
+  //  price: '500',
+   // thumbnail: 'No',
+   // stock: 10
+//};
+//const product5 = {
+ //   title: 'Rucula',
+  //  description: 'Rucula',
+  //  price: '30',
+  //  thumbnail: 'No',
+ //   stock: 10
+//};
+//const product6 = {
+ //   title: 'Naranja',
+   // description: 'Naranja',
+   // price: '100',
+//    thumbnail: 'No',
+//    stock: 50
+//};
+//const product7 = {
+ //   title: 'Limon',
+  //  description: 'Limon',
+   // price: '40',
+ //   thumbnail: 'No',
+ //   stock: 200
+//};
+//const product8 = {
+  //  title: 'Mandarina',
+   // description: 'Mandarina',
+  //  price: '30',
+ //   thumbnail: 'No',
+  //  stock: 200
+//};
+//const product9 = {
+ //   title: 'Huevos',
+  //  description: 'Maple 30u',
+   // price: '1200',
+ //   thumbnail: 'No',
+ //   stock: 20
+//};
+//const product10 = {
+ //   title: 'Pimiento',
+   // description: 'Rojo',
+ //   price: '50',
+ //   thumbnail: 'No',
+  //  stock: 50
+//};
 
 //Metodo para testear el funcionamiento del codigo
-const test = async () => {
-    await productManager.addProduct(product1);
-    await productManager.addProduct(product2);
-    await productManager.addProduct(product3);
-    await productManager.addProduct(product4);
-    await productManager.addProduct(product5);
-    await productManager.addProduct(product6);
-    await productManager.addProduct(product7);
-    await productManager.addProduct(product8);
-    await productManager.addProduct(product9);
-    await productManager.addProduct(product10);
-    console.log('Lista de productos', await productManager.getProducts());
-};
+//const test = async () => {
+ //   await productManager.addProduct(product1);
+  //  await productManager.addProduct(product2);
+  //  await productManager.addProduct(product3);
+ //   await productManager.addProduct(product4);
+ //   await productManager.addProduct(product5);
+  //  await productManager.addProduct(product6);
+ //   await productManager.addProduct(product7);
+  //  await productManager.addProduct(product8);
+ //   await productManager.addProduct(product9);
+ //   await productManager.addProduct(product10);
+  //  console.log('Lista de productos', await productManager.getProducts());
+//};
 
 // Llamada al método de prueba
-test();
+//test();
