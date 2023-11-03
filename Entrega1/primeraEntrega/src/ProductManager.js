@@ -103,23 +103,23 @@ export class ProductManager {
     }
 }
 
-const productManager = new ProductManager();
+//const productManager = new ProductManager();
 
-const product1 = {
-    title: 'Manzana',
-    description: 'Roja',
-    price: '200',
-    thumbnail: 'No',
-    stock: 500
-};
+//const product1 = {
+//    title: 'Manzana',
+ //   description: 'Roja',
+   // price: '200',
+    //thumbnail: 'No',
+    //stock: 500
+//};
 
-const product2 = {
-    title: 'Banana',
-    description: 'Amarilla',
-    price: '250',
-    thumbnail: 'No',
-    stock: 300
-};
+//const product2 = {
+//    title: 'Banana',
+//    description: 'Amarilla',
+//    price: '250',
+//    thumbnail: 'No',
+//    stock: 300
+//};
 
 const product3 = {
     title: 'Melon',
