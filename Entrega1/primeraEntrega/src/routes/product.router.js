@@ -31,14 +31,11 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// router.post("/", productValidator, async (req, res) => {
 router.post("/", async (req, res) => {
   const producto = req.body
   console.log(producto);
   try {
     const productCreated = await productManager.addProduct(producto);
-    //
-    // await productManager.addProduct(title, description, price, thumbnails, stock);
     socketServer.emit("productos", await productManager.getProducts());
     //
     res.status(200).json(productCreated);
