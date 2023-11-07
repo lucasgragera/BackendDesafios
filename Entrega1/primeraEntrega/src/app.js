@@ -23,8 +23,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/products', productRouter);
 app.use('/api/carts', cartManager);
+app.use("/" , realtimeproducts);
 app.use('/realtimeproducts', realtimeproducts);
-
 
 app.get('/', (req, res) => {
     res.render('websocket')
@@ -36,18 +36,6 @@ const httpServer = app.listen(PORT, () => console.log(`Server ok on port ${PORT}
 
 const socketServer = new Server(httpServer);
 
-// socketServer.on('connection', (socket) => {
-//     console.log('Usuario conectado');
-
-//     socket.on('disconnect', () => console.log('Usuario desconectado'));
-
-//     socket.emit('saludoDesdeElBack', 'Bienvenido a websocket');
-
-//     socket.on('respuestaDesdeElFront', (msg) => console.log(msg));
-
-//     socket.on('newProduct', (product) => {
-//         products.push(product)
-//         socketServer.emit('arrayProducts', products);
 socketServer.on("connection", async (socket) => {
     console.log("Cliente conectado");
     const productos = await store.getProducts();

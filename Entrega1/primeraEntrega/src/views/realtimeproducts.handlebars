@@ -43,7 +43,7 @@
         const thumbnails = datosFormulario.get('thumbnails')
         //const code = datosFormulario.get('code')
         const stock = datosFormulario.get('stock')
-        const producto = { title, description, price, thumbnails, code, stock }
+        const producto = { title, description, price, thumbnails, stock }
 
         fetch('/api/products', {
             method: "POST",
@@ -57,4 +57,4 @@
                 console.log("Error!: " + error)
             });
     }
-        ;</script>
+    </script>

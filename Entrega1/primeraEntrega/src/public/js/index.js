@@ -47,9 +47,4 @@ socket.on("productos", (data) => {
                 </div>`;
     productosLista.innerHTML += boxItem;
   });
-  
-
-
-  
-
 });
