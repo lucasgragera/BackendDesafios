@@ -33,10 +33,10 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", productValidator, async (req, res) => {
   try {
-    const productCreated = await productManager.createProduct(req.body);
+    const productCreated = await productManager.addProduct(req.body);
     //
-    await store.addProduct(title, description, price, thumbnails, stock);
-    socketServer.emit("productos", await store.getProducts());
+    await productManager.addProduct(title, description, price, thumbnails, stock);
+    socketServer.emit("productos", await productManager.getProducts());
     //
     res.status(200).json(productCreated);
   } catch (error) {

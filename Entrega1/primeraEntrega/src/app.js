@@ -54,3 +54,6 @@ socketServer.on("connection", async (socket) => {
     socket.emit("productos", productos);
     
 })
+
+
+export default socketServer;
